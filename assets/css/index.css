@@ -1,0 +1,259 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #222222;
+    --secondary: #d9d9d9;
+    --tertiary: #f8f8f8;
+    --white: #ffffff;
+}
+
+.dark {
+    --primary: #7b7b7b;
+    --secondary: #222222;
+    --tertiary: #f8f8f8;
+    --white: #ffffff;
+}
+
+/* 
+    /
+    |
+    |     STYLE FOR THE NAV BAR
+    |
+    \
+*/
+
+
+body {
+    background: var(--tertiary);
+    font-family: 'QuickSand', sans-serif;
+}
+
+.wrapper {
+    width: 95%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+header {
+    background: var(--tertiary);
+    color: var(--primary);
+    position: relative;
+    padding: 1em 0;
+}
+
+header::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.logo {
+    top: 100%;
+    float: left;
+    font-size: 1rem;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.logo span {
+    font-weight: 400;
+}
+
+.main-nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background: var(--secondary);
+    height: 0;
+    overflow: hidden;
+}
+
+.main-nav-open {
+    height: auto;
+}
+
+.main-nav ul {
+    margin: 0;
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.main-nav li {
+    border-bottom: 1px solid #575766;
+}
+
+.main-nav li:last-child {
+    border-bottom: none;
+}
+
+
+.main-nav a {
+    color: var(--primary);
+    display: block;
+    padding: 1em 1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all ease-in-out 300ms;
+}
+
+.main-nav a:hover,
+.main-nav a:focus {
+    background: var(--primary);
+    color: var(--secondary);
+}
+
+.nav-icon {
+    display: inline-block;
+    font-size: 1.3em;
+    margin-right: .5em;
+    text-align: center;
+    width: 1.1em;
+    color: var(--tertiary);
+}
+
+.menu-toggle {
+    padding: 1em;
+    position: absolute;
+    top: 0.5em;
+    right: 0.2em;
+    cursor: pointer;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    content: "";
+    display: block;
+    background: var(--secondary);
+    height: 3px;
+    width: 1.75em;
+    transition: all ease-in-out 500ms;
+}
+
+.hamburger::before {
+    transform: translateY(-6px);
+}
+
+.hamburger::after {
+    transform: translateY(3px);
+}
+
+.open .hamburger {
+    transform: rotate(45deg);
+}
+
+.open .hamburger::before {
+    opacity: 0;
+}
+
+.open .hamburger::after {
+    transform: rotate(90deg) translateY(3px);
+}
+
+@media only screen and (min-width: 700px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    .main-nav {
+        height: auto;
+        position: relative;
+        background: transparent;
+        float: right;
+    }
+
+    .main-nav li {
+        display: inline-block;
+        border: none;
+    }
+
+    .main-nav a {
+        padding: 0;
+        margin-left: 2em;
+    }
+
+    .main-nav a:hover,
+    .main-nav a:focus {
+        background: transparent;
+    }
+
+    .nav-icon {
+        display: none;
+    }
+}
+
+
+/* 
+    /
+    |
+    |     STYLE FOR THE HOME
+    |
+    \
+*/
+
+.home{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.vertical-line {
+    width: 2px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    background-color: black; /* Adjust the color as needed */
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.vertical-text {
+    writing-mode: vertical-lr; /* work on transform: rotate(-90deg); */
+    text-orientation: upright;
+    margin-left: 15px;
+}
+
+.word{
+    display: grid;
+    grid-template-rows: 3;
+    row-gap: 7rem;
+}
+
+.horizontal-num{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: left;
+    color: var(--primary);
+}
+
+.num-text{
+    text-align: left;
+    font-weight: lighter;
+    color: var(--primary);
+}
+
+.num-num{
+    font-size: 4rem;
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.greeting h1{
+    font-size: larg;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.greeting h4{
+    font-size:  small;
+    font-weight: 500;
+    color: var(--);
+}

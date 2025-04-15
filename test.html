@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Timeline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .timeline-container {
+            position: relative;
+            width: 200px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .timeline {
+            position: absolute;
+            width: 4px;
+            height: 100%;
+            background-color: black;
+        }
+        .year {
+            position: absolute;
+            font-size: 16px;
+            color: black;
+        }
+        .year.start {
+            top: 0;
+            left: -40px;
+        }
+        .year.end {
+            bottom: 0;
+            left: -40px;
+        }
+        .label {
+            position: absolute;
+            transform: rotate(-90deg);
+            transform-origin: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="timeline-container">
+        <div class="timeline"></div>
+        <div class="year start">2023</div>
+        <div class="year end">2024</div>
+        <div class="label" style="top: 50%; left: -70px;">Web Developer</div>
+    </div>
+</body>
+</html>
