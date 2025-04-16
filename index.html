@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portifolio</title>
   <link rel="stylesheet" href="assets/css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="assets/js/index.js"></script>
 </head>
 
 <body>
@@ -24,6 +26,9 @@
       <div class="menu-toggle">
         <div class="hamburger"></div>
       </div>
+
+
+    <div class="theme-toggle" onclick="toggleTheme()">🌓</div>
 
     </div>
   </header>
@@ -64,6 +69,8 @@
     </div>
   </section>
 
+  <!-- About Section -->
+
   <section class="about">
     <div class="about-me">
       <h1>About Me</h1>
@@ -72,17 +79,19 @@
         and impactful digital solutions. Skilled in both front-end design and back-end logic, 
         they thrive on solving problems and turning creative ideas into functional products.
       </p>
-      <img src="assets/images/right_Arrow.png" alt="Arrow" srcset="">
+      <img src="assets/images/right_Arrow.png" width="250" alt="Arrow" srcset="">
     </div>
 
     <div class="archievements">
-      <h1>10+</h1>
-      <h3>Completed Practical Projects</h3>
-      <img src="assets/images/boy2.png" alt="" srcset="">
+      <div>
+         <h1>10+</h1>
+        <p>Completed Practical Projects</p>     
+      </div>
+      <img src="assets/images/boy2.png" width="250" alt="" srcset="">
     </div>
-
+    
     <div class="avatar">
-      <img src="assets/images/boyface.png" alt="Face">
+      <img src="assets/images/boyface.png" width="150" alt="Face">
       <p>I'm specialized in:</p>
       <ul>
         <li>Skilled in full-stack development using MERN Stack, Node.js, MySQL, and Express.</li>
@@ -90,6 +99,7 @@
         <li>Proficient in React, Tailwind CSS, and MongoDB</li>
         <li>Experienced in designing database systems for Math, JavaScript, DBS, DBM, and DSA.</li>
       </ul>
+      <br>
       <p>I've also on projects like:</p>
       <ul>
         <li>Umurava: A dynamic task management platform with a dashboard and app, presented in a competition.</li>
@@ -99,58 +109,117 @@
     </div>
   </section>
 
+    <!-- Portifolio Section -->
+
   <section class="portifolio">
     <div>
-      <p><span></span>Portifolio</p>
+      <h4>Portifolio</h4>
     </div>
     <h1>Projects i have worked on</h1>
-    <div>
+
+    <div class="projects">
       <div class="card">
-        <img src="" alt="">
-        <h1></h1>
+        <img src="assets/images/projects/project-1.jpg" alt="Sample">
+        <div class="title">Test</div>
+        <div class="overlay">
+          <i class="fas fa-eye"></i>
+        </div>
       </div>
+
       <div class="card">
-        <img src="" alt="">
-        <h1></h1>
+        <img src="assets/images/projects/project-8.jpg" alt="Sample">
+        <div class="title">Test</div>
+        <div class="overlay">
+          <i class="fas fa-eye"></i>
+        </div>
       </div>
+
       <div class="card">
-        <img src="" alt="">
-        <h1></h1>
+        <img src="assets/images/projects/project-3.jpg" alt="Sample">
+        <div class="title">Test</div>
+        <div class="overlay">
+          <i class="fas fa-eye"></i>
+        </div>
       </div>
+
     </div>
-    <p>View More</p>
+    <p>View More <i class="fas fa-arrow-right"></i></p>
   </section>
+
+    <!-- Blog Section -->
 
   <section class="blog">
     <div>
-      <p>
-        <span></span>Blog
-      </p>
+      <h4>
+        Blog
+      </h4>
     </div>
     <h1>Insights and Trends</h1>
-    <div>
-
+    <div class="blogs">
+      <!-- Dynamic content from JavaScript will be inserted here -->
     </div>
     <p>View More</p>
   </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const blogsContainer = document.querySelector('.blogs');
+      const blogs = JSON.parse(localStorage.getItem('blogs')) || [];
+
+      if (blogs.length === 0) {
+        blogsContainer.innerHTML = '<p style="text-align: center; color: #7b7b7b; font-size: 18px;">No Blogs yet, Check out Soon!!</p>';
+        return;
+      }
+
+      blogs.forEach(blog => {
+        const blogCard = document.createElement('div');
+        blogCard.classList.add('blog-card');
+
+        const blogImage = document.createElement('img');
+        blogImage.src = blog.image || '';
+        blogImage.alt = 'Blog Image';
+        blogCard.appendChild(blogImage);
+
+        const blogTitle = document.createElement('h3');
+        blogTitle.textContent = blog.title;
+        blogCard.appendChild(blogTitle);
+
+        const blogDescription = document.createElement('p');
+        blogDescription.textContent = blog.description;
+        blogCard.appendChild(blogDescription);
+
+        blogsContainer.appendChild(blogCard);
+      });
+    });
+  </script>
+  </section>
+
+    <!-- Contact Section -->
 
   <section class="contact">
     <div>
-      <p>
-        <span></span>Contact Me
-      </p>
+      <h4>
+        Contact Me
+      </h4>
     </div>
     <h1>Reach Out To Me</h1>
-    <form action=""></form>
+    <form action="">
+      <input type="text" name="name" id="name" placeholder="Name" required>
+      <input type="email" name="email" id="email" placeholder="Email" required>
+      <textarea name="message" id="Description" cols="30" placeholder="Description"></textarea>
+      <input type="submit" value="Send Message" id="submit">
+    </form>
   </section>
+
+  <button id="scrollToTop" onclick="scrollToTop()">↑</button>
+
 
   <footer>
     <img src="" alt="">
     <div class="socials">
       <ul>
-        <li>Instagram</li>
-        <li>Github</li>
-        <li>Twitter</li>
+        <li><i class="fab fa-linkedin"></i></li>
+        <li><i class="fab fa-github"></i></li>
+        <li><i class="fab fa-instagram"></i></li>
       </ul>
     </div>
     <hr>
@@ -159,6 +228,8 @@
       <p>Designed by Boris</p>
     </div>
   </footer>
+
+  <script src="assets/js/index.js"></script>
 </body>
 
 </html>

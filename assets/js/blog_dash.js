@@ -81,6 +81,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const blogs = JSON.parse(localStorage.getItem('blogs')) || [];
 
+  if (blogs.length === 0) {
+    blogsContainer.innerHTML = '<p style="text-align: center; color: #7b7b7b; font-size: 18px;">No Blogs yet, Check out Soon!!</p>';
+    return;
+}
+
   blogs.forEach(blog => {
     const blogCard = document.createElement('div');
     blogCard.classList.add('blog-card');
@@ -93,9 +98,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.createElement('div');
     container.classList.add('container');
 
-    const blogTitle = document.createElement('h3');
+    const blogTitle = document.createElement('h2');
     blogTitle.textContent = blog.title;
     container.appendChild(blogTitle);
+
+    const blogsummary = document.createElement('h3');
+    blogsummary.textContent = blog.summary;
+    container.appendChild(blogsummary);
 
     const blogDescription = document.createElement('p');
     blogDescription.textContent = blog.description;
